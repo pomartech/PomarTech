@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Colaboradores</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Section -->
+    <header class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="https://i.pinimg.com/736x/0c/66/3f/0c663f770ca7b8921b3492a69a768c5b.jpg" alt="Logo do Gerenciador" class="logo"> 
+                <h1 class="font-weight-bold" style="font-family: 'Courier New', Courier, monospace; color: #354128;">Gerenciador de Colaboradores</h1>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-5">
+        <!-- Login Screen -->
+        <div id="login-screen" class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title font-weight-bold">Login</h5>
+            </div>
+            <div class="card-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email" class="font-weight-bold">E-mail:</label>
+                        <input type="email" class="form-control" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="font-weight-bold">Senha:</label>
+                        <input type="password" class="form-control" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                    <a href="#" id="go-to-register" class="btn btn-link">Criar conta</a>
+                </form>
+            </div>
+        </div>
+
+        <!-- Register Screen -->
+        <div id="register-screen" class="card mb-4 hidden">
+            <div class="card-header">
+                <h5 class="card-title font-weight-bold">Cadastro</h5>
+            </div>
+            <div class="card-body">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name" class="font-weight-bold">Nome:</label>
+                        <input type="text" class="form-control" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="font-weight-bold">E-mail:</label>
+                        <input type="email" class="form-control" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="font-weight-bold">Senha:</label>
+                        <input type="password" class="form-control" id="register-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <a href="#" id="back-to-login" class="btn btn-link">Já possui uma conta?</a>
+                </form>
+            </div>
+        </div>
+
+        <!-- Training Screen -->
+        <div id="training-screen" class="card mb-4 hidden">
+            <div class="card-header">
+                <h5 class="card-title font-weight-bold">Gerenciamento de Colaboradores</h5>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#addColaboradorModal">Adicionar Colaborador</button>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Novo componente de busca -->
+                        <div id="divBusca">
+                            <input type="text" id="txtBusca" placeholder="Buscar...">
+                            <button id="btnBusca" class="btn btn-secondary">Buscar</button> 
+                        </div>
+                    </div>
+                </div>
+                <div id="conteudo" class="text-center">
+                    <!-- Lista de colaboradores será renderizada aqui -->
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="export-button" class="btn btn-secondary">Exportar para Excel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Adicionar Colaborador -->
+        <div class="modal fade" id="addColaboradorModal" tabindex="-1" aria-labelledby="addColaboradorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="addColaboradorModalLabel">Adicionar Colaborador</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-add-colaborador">
+                            <div class="form-group">
+                                <label for="nome" class="font-weight-bold">Nome:</label>
+                                <input type="text" class="form-control" id="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="matricula" class="font-weight-bold">Matrícula:</label>
+                                <input type="text" class="form-control" id="matricula" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="funcao" class="font-weight-bold">Função:</label>
+                                <input type="text" class="form-control" id="funcao" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="treinamento" class="font-weight-bold">Treinamento:</label>
+                                <input type="text" class="form-control" id="treinamento" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="status_treinamento" class="font-weight-bold">Status do Treinamento:</label>
+                                <select class="form-control" id="status_treinamento" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Concluído">Concluído</option>
+                                    <option value="Em andamento">Em andamento</option>
+                                    <option value="Pendente">Pendente</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="data" class="font-weight-bold">Data de Vencimento:</label>
+                                <input type="date" class="form-control" id="data" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Adicionar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Editar Colaborador -->
+        <div class="modal fade" id="editColaboradorModal" tabindex="-1" aria-labelledby="editColaboradorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="editColaboradorModalLabel">Editar Colaborador</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-edit-colaborador">
+                            <input type="hidden" id="editIndex">
+                            <div class="form-group">
+                                <label for="editNome" class="font-weight-bold">Nome:</label>
+                                <input type="text" class="form-control" id="editNome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editMatricula" class="font-weight-bold">Matrícula:</label>
+                                <input type="text" class="form-control" id="editMatricula" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editFuncao" class="font-weight-bold">Função:</label>
+                                <input type="text" class="form-control" id="editFuncao" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editTreinamento" class="font-weight-bold">Treinamento:</label>
+                                <input type="text" class="form-control" id="editTreinamento" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editStatusTreinamento" class="font-weight-bold">Status do Treinamento:</label>
+                                <select class="form-control" id="editStatusTreinamento" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Concluído">Concluído</option>
+                                    <option value="Em andamento">Em andamento</option>
+                                    <option value="Pendente">Pendente</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editData" class="font-weight-bold">Data de Vencimento:</label>
+                                <input type="date" class="form-control" id="editData" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bibliotecas -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

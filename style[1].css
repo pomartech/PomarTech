@@ -1,0 +1,134 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #dde1c8; /* Fundo Bege Claro */
+}
+
+.hidden {
+    display: none;
+}
+
+.logo {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+    margin: 0 auto; /* Centraliza a tabela horizontalmente */
+}
+
+.input-group {
+    width: 100%;
+}
+
+/* Improved Search Bar Styling */
+#divBusca {
+    background-color: #fff; /* White background */
+    border: 1px solid #ced4da; /* Light grey border */
+    border-radius: 20px; /* Rounded corners */
+    width: 300px;
+    padding: 5px; /* Add some padding */
+    display: flex; /* Use flexbox for better alignment */
+    align-items: center; /* Vertically align items */
+}
+
+#txtBusca {
+    background-color: transparent;
+    padding: 0 10px; /* Adjust padding */
+    font-style: normal; /* Normal font style */
+    font-size: 16px; /* Adjust font size */
+    border: none;
+    height: 35px; /* Adjust height */
+    width: 100%; /* Take up full width */
+    flex-grow: 1; /* Allow the input to grow */
+    outline: none; /* Remove default outline on focus */
+}
+
+#btnBusca {
+    cursor: pointer;
+    height: 35px; /* Adjust height */
+    border: none; /* Remove default border */
+    background-color: transparent; /* Transparent background */
+    border-radius: 20px; /* Arredonda o botão */
+    margin-left: 5px; /* Add margin */
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff; /* White text */
+    background-color: #354128; /* Green background */
+}
+
+/* Font Changes */
+h1, h2, h3, h4, h5, h6, label {
+    font-family: 'Times New Roman', Times, serif; /* Changed to Arial Black */
+}
+
+/* Título Principal - Gerenciador de Colaboradores */
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #354128;
+}
+
+/* Estilo do Card */
+.card {
+    border: 1px solid #ced4da; /* Light grey border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #fff; /* White background */
+}
+
+/* Estilo dos Botões */
+.btn {
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Increased padding */
+    font-size: 16px; /* Slightly larger font */
+}
+
+/* Estilo da Tabela */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f2f2f2; /* Light grey background */
+}
+
+/* Estilo do Modal */
+.modal-content {
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Estilo da Barra de Busca */
+#divBusca {
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+#txtBusca {
+    padding-left: 40px;
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    font-size: 16px;
+    width: calc(100% - 100px); /* Ajustado para o tamanho do botão */
+}
+
+/* Indicadores de status */
+.status-ok {
+    color: green;
+}
+
+.status-warning {
+    color: yellow;
+}
+
+.status-error {
+    color: red;
+}
